@@ -1,0 +1,202 @@
+body{
+    background-image: url('../Images/loginbackgrnd.jpg');
+    background-size: cover;
+
+}
+
+.div1{
+    display: table;
+    max-width: 900px;
+    width: 90%;
+    margin: 0 auto;
+    margin-left: 350px; 
+    margin-top: 100px;
+    margin-right: 350px;
+    margin-bottom:100px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #ccc;
+}
+
+ .image-holder {
+    display: table-cell;
+    width: 550px;
+    background: url('../Images/Loginimg.jpg');
+    background-size: cover;
+    border-radius: 10px;
+  }
+  
+
+
+  form {
+    display: table-cell;
+    width: 400px;
+    background-color: #ffffff;
+    padding: 40px 60px;
+    
+  }
+
+  form h1 {
+    font-size: 30px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+   form .form-control {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #dfe7f1;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 0px;
+    height: 40px;
+    margin-left: 50px;
+    width: 300px;
+    font-size: 17px;
+
+  }
+
+  form span{
+  
+    color:#444852;
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+    pointer-events: none;
+    left: 860px;
+    margin-top: 15px;
+  }
+
+
+
+ form input:focus {
+	outline: none;
+  	border-bottom: 1px solid red;
+    
+}
+
+
+form input:focus ~span
+{
+    color: black;
+    transform : translateY(-25px);
+    
+}
+
+ 
+ form .frgtpswd {
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: none;
+    font-size: 17px;
+    margin-top: 20px;
+    color: inherit;
+    height: 40px;
+    margin-left: 50px;
+    color:#808080;
+    text-overflow: hidden;
+    text-decoration: none;
+    
+  }
+
+   
+ form .signup {
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: none;
+    font-size: 20px;
+    margin-top: 20px;
+    color: inherit;
+    height: 40px;
+    margin-left: 70px;
+    color:black;
+    text-overflow: hidden;
+    text-decoration: none;
+    
+  }
+
+
+  form .frgtpswd:hover {
+
+    color:black;
+    text-decoration: underline;
+
+  }
+
+  
+  form .signup:hover {
+
+    color:#808080;
+    text-decoration: underline;
+
+  }
+
+  form .btn{
+    margin-top:20px;
+    margin-left: 150px;
+    border-radius: 10px;
+    border-color: red;
+    background-color: white;
+    font-size: 25px;
+    color: red;
+    font-family: 'Poppins', sans-serif;
+    padding-left:20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right:20px;
+  }
+
+  form .btn:hover{
+    background-color: #c73a3a;
+    color: white;
+    border-color: white;
+  }
+  .div-line {
+    height: 25px;
+    border-bottom: 1px solid black;
+  }
+
+  form .or{
+    background-color: white;
+    left: 950px
+  }
+
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: 20px;
+    
+  }
+  
+
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+  .fa-google {
+    background: red;
+    color: white;
+  }
+
+
+
+  
