@@ -1,6 +1,7 @@
 body{
     background-image: url('../Images/loginbackgrnd.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
 
 }
 
@@ -29,9 +30,9 @@ body{
 
 
   form {
-    display: table-cell;
-    width: 400px;
-    background-color: #ffffff;
+     display: table-cell;
+     width: 400px;
+     background-color: #ffffff;
     padding: 40px 60px;
     
   }
@@ -61,6 +62,23 @@ body{
 
   }
 
+  form .form-control1 {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #dfe7f1;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: inherit;
+    text-indent: 0px;
+    height: 40px;
+    margin-left: 50px;
+    width: 300px;
+    font-size: 17px;
+
+  }
+
   form span{
   
     color:#444852;
@@ -74,13 +92,20 @@ body{
 
 
  form input:focus {
-	outline: none;
+	  outline: none;
   	border-bottom: 1px solid red;
     
 }
 
 
-form input:focus ~span
+form .form-control:focus ~span
+{
+    color: black;
+    transform : translateY(-25px);
+    
+}
+
+form .form-control1:focus ~span
 {
     color: black;
     transform : translateY(-25px);
@@ -196,6 +221,16 @@ form input:focus ~span
     background: red;
     color: white;
   }
+
+  @media (max-width: 950px) {
+    *{
+      display: inline-block; 
+      
+    }
+ 
+   
+   
+   }
 
 
 

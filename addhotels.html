@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Hotels</title>
+        <link rel="stylesheet" href="css/addhotels.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+            
+            
+                function cntn(){
+                    var dv1 = document.getElementById("form-section");
+                    dv1.innerHTML="";
+                    var dv2 = document.getElementById("continue-section");
+                    dv1.setAttribute("style","display:none;")
+                    dv2.setAttribute("style","display:block;");
+                    
+
+
+                }
+           
+                function sbmit(){
+    
+                    alert("Place Added Successfully");
+                    
+                }
+   
+          
+        </script>
+    </head>
+
+    <body>
+
+        <header class="header">
+            <img src="./Images/addplaces.png">
+
+        </header>
+        <form>
+
+        <section class = "form-section" id="form-section">
+          
+                <h1>
+                    Add an accommodation
+                </h1>
+
+                <h1>
+                    How can we find this place?
+                </h1>
+                
+                <h2>
+                    Name & Description
+                </h2>
+                <hr>
+
+                <h4>Official place name</h4>
+
+                <input type="text" placeholder="Enter placename">
+
+                <hr>
+
+                <h2> Address</h2>
+
+                <h4> City/Town, State/Province/Region</h4>
+
+                <input type="text" placeholder="Start typing city/town, state/province">
+
+                <h4>Country (Optional)</h4>
+                <input type="text" placeholder="Start typing a country">
+
+                <h4>Street Address (50 character maximum)</h4>
+                <input type="text" placeholder="Suite number,intersection, plaza, square">
+
+                <h4>Postal Code (Optional)</h4>
+                <input type="text" placeholder="Postal Code">
+                
+                <hr>
+                <div>
+                    <div>
+                <h4>Latitude (Optional)</h4>
+                <input type="number" placeholder="Latitude">
+            </div>
+
+            <div>
+           
+                <h4>Longitude (Optional)</h4>
+                <input type="number" placeholder="Longitude">
+            </div>
+
+                </div>
+           
+                <hr>
+
+                <h2> Contact Information</h2>
+
+                <h4> Telephone (Optional)</h4>
+                <input type="number" placeholder="Enter telephone number">
+
+                <h4>Email (Optional)</h4>
+                <input type="email" placeholder="Enter email address">
+
+                <h4>Website URL (Optional)</h4>
+                <input type="text" placeholder="http://">
+
+                <br>
+
+                <button class="goback" >Go Back</button>
+                
+                <button class = "submit" id="sbmt" onclick="cntn()">Continue</button>
+               
+
+
+
+         
+        </section>
+
+        <section class ="continue-section" id = "continue-section">
+
+            <h3>
+                What accommodation type best describes this property?
+            </h3>
+
+          <div class = "flex-container">
+         
+            <div>
+            <input type="radio" name="acc" id="a1">
+            <label for="a1">Hotel</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a2">
+            <label for="a2">Small Hotel</label></div> 
+
+            <div>
+            <input type="radio" name="acc" id="a3">
+            <label for="a3">Motel</label></div>
+            
+            <div>
+            <input type="radio" name="acc" id="a4">
+            <label for="a4">Resort</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a5">
+            <label for="a5">Bed and Breakfast</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a6">
+            <label for="a6">Inn</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a7">
+            <label for="a7">Conoda.Appartment</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a8">
+            <label for="a8">Villa</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a9">
+            <label for="a9">Compsite</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a10">
+            <label for="a10">Hostel</label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a11">
+            <label for="a11">Holiday Rental House </label></div>
+
+            <div>
+            <input type="radio" name="acc" id="a12">
+            <label for="a12">Other</label></div>
+          </div>
+
+          <h3>
+            How frequently is the front desk or check-in location staffed? (Optional)
+        </h3>
+
+        <input type="radio" name = "cin" id = "b1">
+        <label for="b1"> 24 hour front desk</label><br>
+
+        <input type="radio" name = "cin" id = "b2">
+        <label for="b2"> Limited hours front desk</label><br>
+
+        <input type="radio" name = "cin" id = "b3">
+        <label for="b3"> No front desk</label><br>
+
+        <input type="radio" name = "cin" id = "b4">
+        <label for="b4"> Not sure</label><br>
+
+
+        <h3>
+            Does housekeeping have an additional fee? (Optional)
+        </h3>
+
+        <div class = "flex-container">
+         
+       
+            <input type="radio" name="adf" id="c1">
+            <label for="c1">Yes</label>
+
+           
+            <input type="radio" name="adf" id="c2">
+            <label for="c2">No</label> 
+
+            <input type="radio" name="adf" id="c3">
+            <label for="c3">Not Sure</label>
+
+           
+          </div>
+
+          <h3>
+            How often is housekeeping provided? (Optional)
+        </h3>
+
+        <input type="radio" name = "hpp" id = "d1">
+        <label for="d1"> Daily</label><br>
+
+        <input type="radio" name = "hpp" id = "d2">
+        <label for="d2"> Weekly</label><br>
+
+        <input type="radio" name = "hpp" id = "d3">
+        <label for="d3"> Bi-weekly</label><br>
+
+        <input type="radio" name = "hpp" id = "d4">
+        <label for="d4"> None</label><br>
+
+        <input type="radio" name = "hpp" id = "d5">
+        <label for="d5"> Not sure</label><br>
+
+        <h3>
+            Are there any restrictions on who can stay at this property? (Optional)
+        </h3>
+
+        <input type="radio" name = "rsp" id = "e1">
+        <label for="e1">No restrictions</label><br>
+
+        <input type="radio" name = "rsp" id = "e2">
+        <label for="e2"> Adults only </label><br>
+
+        <input type="radio" name = "rsp" id = "e3">
+        <label for="e3"> Other restrictions (please provide details)</label><br>
+
+        <input type="radio" name = "rsp" id = "e4">
+        <label for="e4"> Not sure</label><br>
+
+
+
+        <h3>
+            Does property have seasonal closures? (Optional)
+        </h3>
+
+        <input type="radio" name = "psc" id = "f1">
+        <label for="f1">No Seasonal closures</label><br>
+
+        <input type="radio" name = "psc" id = "f2">
+        <label for="f2"> Seasonal closures under 3 months </label><br>
+
+        <input type="radio" name = "psc" id = "f3">
+        <label for="f3"> Seasonal closures over 3 to 8 months</label><br>
+
+        <input type="radio" name = "psc" id = "f4">
+        <label for="f4"> Seasonal closures over 8 months</label><br>
+
+        <input type="radio" name = "psc" id = "f5">
+        <label for="f5"> Not Sure</label><br>
+
+
+        <h3>
+            Are There Onsite Staff? (Optional)
+        </h3>
+
+        <input type="radio" name = "oss" id = "g1">
+        <label for="g1">Full time</label><br>
+
+        <input type="radio" name = "oss" id = "g2">
+        <label for="g2">Part time</label><br>
+
+        <input type="radio" name = "oss" id = "g3">
+        <label for="g3">No Onsite Staff</label><br>
+
+        <input type="radio" name = "oss" id = "g4">
+        <label for="g4"> Not Sure</label><br>
+
+
+        <h2>
+            What kinds of amenities does this property offer (Optional)
+        </h2>
+        <h5>This is a partial list. You'll be able to tell us about all of your property's <br> amenities once your listing is published and you've been verfied as the owner.</h5>
+
+        <div class = "flex-container1"> 
+            <div>
+            <input type="checkbox" id="x1" name="x1" value="Free Wi-Fi">
+            <label for="x1"> Free Wi-Fi</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x2" name="x2" value="Wifi in Room - Surcharge">
+            <label for="x2"> Wifi in Room - Surcharge</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x3" name="x3" value="Free Internet">
+            <label for="x3"> Free Internet</label><br>
+            </div>
+             
+            <div>
+            <input type="checkbox" id="x4" name="x4" value="Intenet Access in Room ">
+            <label for="x4"> Intenet Access in Room </label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x5" name="x5" value="Free Parking">
+            <label for="x5"> Free Parking</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x6" name="x6" value="Parking">
+            <label for="x6"> Parking</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x7" name="x7" value="Restaurant">
+            <label for="x7"> Restaurant</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x8" name="x8" value="Bar/Lounge">
+            <label for="x8"> Bar/Lounge</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x9" name="x9" value="Room Service">
+            <label for="x9"> Room Service</label><br>
+            </div>
+        </div>
+        <div class = "flex-container2">
+
+            <div>
+            <input type="checkbox" id="x10" name="x10" value="Free Breakfast">
+            <label for="x10"> Free Breakfast</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x11" name="x11" value="Non-Smoking Hotel">
+            <label for="x11"> Non-Smoking Hotel</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x12" name="x12" value="Non-Smoking Rooms">
+            <label for="x12"> Non-Smoking Rooms</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x13" name="x13" value="Family Rooms">
+            <label for="x13"> Family Rooms</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x14" name="x14" value="Suites">
+            <label for="x14"> Suites</label><br>
+            </div>
+
+
+            <div>
+            <input type="checkbox" id="x15" name="x15" value="Air Conditioning">
+            <label for="x15"> Air Conditioning</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x16" name="x16" value="Pets Allowed">
+            <label for="x16"> Pets Allowed</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x17" name="x17" value="Laundry service">
+            <label for="x17"> Laundry service</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x18" name="x18" value="Swimming Pool">
+            <label for="x18"> Swimming Pool</label><br>
+            </div>
+        </div>
+
+        <div class="flex-container3">
+
+
+            <div>
+            <input type="checkbox" id="x19" name="x19" value="Beach">
+            <label for="x19"> Beach</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x20" name="x20" value="Wheelchair access">
+            <label for="x20"> Refrigerator</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x21" name="x21" value="Kitchen/Kitchentter">
+            <label for="x21"> Kitchen/Kitchentter </label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x22" name="x22" value="Airport Transportation">
+            <label for="x22"> Airport Transportation</label><br>
+            </div>
+
+
+            <div>
+            <input type="checkbox" id="x23" name="x23" value="Shuttle Bus service">
+            <label for="x23"> Shuttle Bus service</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x24" name="x24" value="Fitness Centre">
+            <label for="x1"> Fitness Centre</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x25" name="x25" value="Lockers/storage">
+            <label for="x25"> Lockers/storage</label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x26" name="x26" value="children Activitiies">
+            <label for="x26"> children Activitiies </label><br>
+            </div>
+
+            <div>
+            <input type="checkbox" id="x27" name="x27" value="Free Wi-Fi">
+            <label for="x27"> Others</label><br>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="flex-container4">
+            <br><br>
+        <div>
+        <input type="checkbox" id="decl" name="decl">
+        <label for ="decl">I certify that this is a genuine accommodation</label>
+    </div>
+
+        <div>
+             
+        <button class="goback" >Go Back</button>
+                    
+        <button class="submit1" type="submit" onclick="sbmit()">Continue</button>
+    
+        </div>
+
+   
+        </div>
+        
+    
+
+
+        </section>
+  
+
+    
+
+    </form>
+    </body>
+</html> 

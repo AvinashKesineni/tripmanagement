@@ -10,6 +10,7 @@
 
 body{
   background-image:linear-gradient(to right,#eecda3   ,#ef629f);
+  background-repeat: no-repeat;
   height: 100vh;
   
 }
@@ -51,7 +52,7 @@ body{
 .input-fields .input,
 .msg textarea{
   margin: 10px 0;
-  background: transparent;
+  background: transparent; 
   border: 0px;
   border-bottom: 2px solid #ffafbd ;
   padding: 10px;
