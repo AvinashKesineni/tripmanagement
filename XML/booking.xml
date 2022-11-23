@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE TRIPMANAGEMENT SYSTEM "booking.dtd" >
+
+<TRIPMANAGEMENT>
+
+    <BOOKING>
+
+        <BOOKINGID> 1234 </BOOKINGID>
+
+        <FULLNAME> KESINENI VENKATA AVINASH </FULLNAME>
+
+        <PLACE>COIMBATORE</PLACE>
+
+        <CHECKIN> 26-08-2022 </CHECKIN>
+
+        <CHECKOUT> 28-08-2022 </CHECKOUT>
+
+        <NOOFROOMS> 1 </NOOFROOMS>
+
+        <NOOFADULTS> 1 </NOOFADULTS>
+
+        <NOOFCHILD />
+
+        <EMAIL> kva@gmail.com </EMAIL>
+
+        <PHONE> 6301661848 </PHONE>
+
+    </BOOKING>
+
+
+    <BOOKING>
+
+        <BOOKINGID> 1235 </BOOKINGID>
+
+        <FULLNAME> JOHN DOE </FULLNAME>
+
+        <PLACE>BANGALORE</PLACE>
+
+        <CHECKIN> 26-08-2022 </CHECKIN>
+
+        <CHECKOUT> 29-08-2022 </CHECKOUT>
+
+        <NOOFROOMS> 2 </NOOFROOMS>
+
+        <NOOFADULTS> 3 </NOOFADULTS>
+
+        <NOOFCHILD> 4 </NOOFCHILD>
+
+        <EMAIL> johndoe@gmail.com </EMAIL>
+
+        <PHONE> 9912345326 </PHONE>
+
+    </BOOKING>
+
+</TRIPMANAGEMENT>

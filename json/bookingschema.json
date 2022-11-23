@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Booking",
+    "description": "Booking details collected from booking form",
+    "type": "object",
+ 
+      "Tripmanagement":{
+    "properties": {
+     
+     "BookingId": {
+        "description": "The unique identifier for a product",
+        "type": "integer"
+     },
+       
+     "FULLNAME": {
+        "description": "Name of the Customer who have done booking",
+        "type": "string"
+     },
+       
+     "place": {
+        "description": "Place where the hotel exists",
+        "type": "string"
+ 
+     },
+ 
+     "Checkin":{
+         "description": "Date when the customer wants to enter the hotel",
+         "type": "string"
+ 
+     },
+ 
+     "Checkout":{
+         "description": "Date when the customer wants to exit the hotel",
+         "type": "string"
+ 
+     },
+ 
+     "NoofRooms": {
+         "description": "No of Rooms such that customer wants to book",
+         "type": "number",
+         "minimum": 1,
+         "exclusiveMinimum": true
+      },
+ 
+      "NoofAdults": {
+         "description": "No of Adults staying at hotel",
+         "type": "number",
+         "minimum": 1,
+         "exclusiveMinimum": true
+      },
+ 
+      "NoofChild": {
+         "description": "No of Child staying at hotel",
+         "type": "number",
+         "minimum": 0,
+         "exclusiveMinimum": true
+      },
+ 
+      "Email":{
+         "description": "Email of the customer who wants to book",
+         "type": "string"
+ 
+     },
+ 
+     "Phone":{
+         "description": "Phone no of customer who is booking the hotel",
+         "type": "number"
+ 
+     }
+ 
+   
+ 
+ 
+  },
+   
+  "required": ["BookingId", "FULLNAME","Place","Checkin","Checkout","NoofRooms","Email"]
+      }
+ 
+ }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+                                
+<title>Booking Form</title>                                
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet'>                              
+<link href='css/booking.css' rel='stylesheet'>
+<link href='css/booking.css' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+ </head>
+                                
+
+<body>
+    <div ng-app = "mainApp" ng-controller = "bookingController">
+
+<div id="booking" class="section">
+<div class="section-center">
+<div class="container">
+<div class="row">
+<div class="booking-form">
+<div class="form-header">
+<br>
+<br>
+<br>
+<br>
+<h1>Reservation Booking</h1>
+</div>
+<form name="bookingform" action="book.html" method="POST">
+
+    <div class="form-group">
+        <input class="form-control" name="hotelname" type="text" value="{{hotel}}" readonly>
+    </div>
+        
+
+
+<div class="form-group">
+<input class="form-control" name="fullname" type="text" placeholder="Enter Your Name here" ng-model="name" required>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:red" ng-show = "bookingform.fullname.$touched || bookingform.fullname.$dirty && bookingform.fullname.$invalid">
+    <span ng-show="bookingform.fullname.$error.required">FullName is required*</span>
+</span>
+</div>
+
+<div class="form-group">
+<input class="form-control" type="text" name="address" placeholder="Enter your Address" ng-model="address" required>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:red"  ng-show = "bookingform.address.$touched || bookingform.address.$dirty && bookingform.address.$invalid">
+    <span ng-show="bookingform.address.$error.required">Place is required*</span>
+</span>
+</div>
+
+
+
+
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+    <input class="form-control" name="checkin" type="date"  name="checkin"  ng-model="checkin" min="{{date | date:'yyyy-MM-dd'}}"  required >
+    <span class="form-label">Check In</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:red"  ng-show = "bookingform.checkin.$touched || bookingform.checkin.$dirty && bookingform.checkin.$invalid">
+    <span ng-show="bookingform.checkin.$error.required">Checkin Date is required*</span>
+</span>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+    <input class="form-control" name="checkout" type="date" name="checkout" ng-model="checkout" min="{{date | date:'yyyy-MM-dd'}}"  required >
+    <span class="form-label">Check out</span>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:red"  ng-show = "bookingform.checkout.$touched || bookingform.checkout.$dirty && bookingform.checkout.$invalid">
+    <span ng-show="bookingform.checkout.$error.required">Checkout Date is required*</span>
+</span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="form-group">
+    <select name="rooms" class="form-control" ng-model="rooms" ng-options = "k as v for (k,v) in numbers" required>
+        <option value="" selected hidden>no of rooms</option>
+    </select>
+    <span class="select-arrow"></span>
+    <span class="form-label">Rooms</span>
+
+    <span style="color:red"  ng-show = "bookingform.rooms.$touched">
+        <span ng-show="bookingform.rooms.$error.required">rooms is required*</span>
+    
+
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+    <select name="adults" class="form-control" ng-model="adults" ng-options = "k as v for (k,v) in numbers" required>
+        <option value="" selected hidden>no of adults</option>
+    </select>
+    <span class="select-arrow"></span>
+    <span class="form-label">Adults</span>
+  
+    <span style="color:red"  ng-show = "bookingform.adults.$touched">
+        <span ng-show="bookingform.adults.$error.required">Adults is required*</span>
+  
+
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+    <select name="children" class="form-control"  ng-options = "k as v for (k,v) in number" ng-model="children" required>
+        <option value="" selected hidden>no of children</option>     
+    </select>
+    <span class="select-arrow"></span>
+    <span class="form-label">Children</span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+    <input class="form-control" name="email" type="email" placeholder="Enter your Email" length = "100" ng-model="email" required>
+    <span class="form-label">Email</span>
+
+    <span style="color:red"  ng-show = "bookingform.email.$touched || bookingform.email.$dirty && bookingform.email.$invalid">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  ng-show = "bookingform.email.$error.required">Email is required*</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  ng-show = "bookingform.email.$error.email">Invalid Email*</span>
+    </span>
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+    <input class="form-control" type="number"  name="phoneno" maxlength="10" placeholder="Enter you Phone" ng-model="phoneno" required>
+    <span class="form-label">Phone</span>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <span style="color:red" ng-show = "bookingform.phoneno.$touched">
+        <span  ng-show = "bookingform.phoneno.$error.required">Phoneno is required*</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span  ng-show = "bookingform.phoneno.$invalid">Invalid Phoneno*</span>
+    </span>
+
+
+
+
+    
+    
+
+</div>
+</div>
+</div>
+
+
+<div class="form-btn">
+<button class="submit-btn" type="submit" ng-model="book" ng-diabled="bookingform.fullname.$dirty &&
+bookingform.fullname.$invalid || bookingform.address.$dirty &&
+bookingform.address.$invalid ||bookingform.checkin.$dirty && bookingform.checkin.$invalid || bookingform.checkout.$dirty && bookingform.checkout.$invalid ||bookingform.email.$dirty &&
+bookingform.email.$invalid||bookingform.phoneno.$invalid" >Book Now</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div> 
+</div>
+
+<script>
+    var mainApp = angular.module("mainApp", []);
+    
+    mainApp.controller('bookingController', function($scope) {
+       $scope.reset = function() {
+        //   $scope.Destination = "Coimbatore";
+        //   $scope.name = "f";
+        //   $scope.email = "johndoe@gmail.com";
+        //   $scope.phoneno = "6301661848";
+        $scope.numbers = {1:1,2:2,3:3,4:4,5:5};
+        $scope.number ={0:0,1:1,2:2,3:3,4:4};
+        $scope.hotel = "S.V Grand Hotel";
+        $scope.date = new Date();
+
+        
+
+       }
+       
+       $scope.reset();
+    });
+ </script>
+
+
+
+</body>
+
+
+</html>

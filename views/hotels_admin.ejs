@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<head>
+    <title>Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script>
+        var myapp = angular.module('myapp',[])
+        myapp.controller('controll', function ($scope) {
+            $scope.data = {data};
+           
+        })
+    </script>
+
+<style>
+
+*{
+  max-width: 1000px;
+  font-family: sans-serif;
+  padding-left: 5px;
+  padding-right: 5px;
+
+
+
+}
+
+    th{
+        background-color: #95A5A6;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    tr{
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    
+
+    }
+    table.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    body {
+  background: #fafafa url(https://jackrugile.com/images/misc/noise-diagonal.png);
+
+  font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
+  text-shadow: 0 1px 0 #fff;
+}
+
+strong {
+  font-weight: bold; 
+  
+}
+
+em {
+  font-style: italic; 
+}
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.search {
+  width: 330px;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #cc1400;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #cc0000;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.wrap{
+  
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div ng-app = "myapp" ng-controller = "controll">
+        
+        <center><h1 style="font-size: 40px;">Hotels Admin Page</h1></center>
+        
+
+
+
+        <!-- <% for(var i=0; i < data.length; i++) { %>
+            <p><%= data[i].name %></p> 
+            <p><%= data[i].email %></p> 
+            <p><%= data[i].gender %></p> 
+            <p><%= data[i].age %></p> 
+            <p><%= data[i].skills %></p>  
+            <br /><br /> ....... <br /><br />
+        <% } %> -->
+
+        <table  cellspacing="5" cellpadding="10">
+
+            <tr>
+                
+                <th>HotelId</th>
+                <th>Hotelname</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>StrtAddr</th>
+                <th>Zipcode</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Telephone</th>
+                <th>Email</th>
+                <th>URL</th>
+                <th>Accomodation</th>
+                <th>Frontdesk</th>
+                <th>feehskpng</th>
+                <th>Hskpng</th>
+                <th>Restrictions</th>
+                <th>Seasonals</th>
+                <th>OnsiteStaff</th>
+
+            </tr>
+
+            <% for(var i=0; i<data.length; i++) {%>
+                <form name="<%= data[i].BookingId %>" method="POST">
+
+               <tr>
+                 <td><%= data[i].HotelId %></td>
+                 <td><%= data[i].Hotelname %></td>
+                 <td><%= data[i].City %></td>
+                 <td><%= data[i].Country %></td>
+                 <td><%= data[i].StrtAddr %></td>
+                 <td><%= data[i].Zipcode %></td>
+                 <td><%= data[i].Latitude %></td>
+                 <td><%= data[i].Longitude %></td>
+                 <td><%= data[i].Telephone %></td>
+                 <td><%= data[i].Email %></td>
+                 <td><%= data[i].URL %></td>
+                 <td><%= data[i].Accomodation %></td>
+                 <td><%= data[i].Frontdesk %></td>
+                 <td><%= data[i].feehskpng %></td>
+                 <td><%= data[i].Hskpng %></td>
+                 <td><%= data[i].Restrictions %></td>
+                 <td><%= data[i].Seasonals %></td>
+                 <td><%= data[i].OnsiteStaff %></td>
+                
+               </tr>
+               
+               <% } %>
+            </form>
+        </table>
+              
+          
+    </div>
+</body>

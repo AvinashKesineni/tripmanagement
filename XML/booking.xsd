@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <xs:schema targetNamespace="http://example.org/ms"
+                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                    elementFormDefault="qualified">
+                    <xs:element name="TRIPMANAGEMENT">
+                        <xs:complexType>
+                            <xs:sequence>
+                                
+                        <xs:element name="BOOKING" maxOccurs="unbounded" minOccurs="1">
+                
+                        <xs:complexType>
+                            <xs:sequence>
+                
+                                <xs:element name="BOOKINGID" >
+                                    <xs:complexType>
+                                                   <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                            <xs:attribute name="value" use="required">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:pattern value="[0-9]+"/>
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                        </xs:extension>
+                                                     </xs:simpleContent>
+                                                </xs:complexType>
+                                </xs:element>
+                
+                                <xs:element name="FullName">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="LAST-NAME" type="xs:string"/>
+                                            <xs:element name="FIRST-NAME" type="xs:string"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                
+                                <xs:element name="Place" >
+                                    <xs:complexType>
+                                                   <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                            <xs:attribute name="value" use="required">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:pattern value="[a-z|A-Z]+"/>
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                        </xs:extension>
+                                                     </xs:simpleContent>
+                                                </xs:complexType>
+                                </xs:element>
+                
+                                <xs:element name="CHECKIN">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="datee" type="xs:integer"/>
+                                            <xs:element name="month" >
+                                                <xs:complexType>
+                                                   <xs:simpleContent>
+                                                       <xs:extension base="xs:integer" >
+                                                          <xs:attribute name="year" type="xs:string"  fixed="2022"></xs:attribute>
+                                                       </xs:extension>
+                                                   </xs:simpleContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="future" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                                            <xs:element name="past" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+
+
+                                <xs:element name="CHECKOUT">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="datee" type="xs:integer"/>
+                                            <xs:element name="month" >
+                                                <xs:complexType>
+                                                   <xs:simpleContent>
+                                                       <xs:extension base="xs:integer" >
+                                                          <xs:attribute name="year" type="xs:string"  fixed="2022"></xs:attribute>
+                                                       </xs:extension>
+                                                   </xs:simpleContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="future" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                                            <xs:element name="past" type="xs:string" minOccurs="0" maxOccurs="1"/>
+                
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+
+
+                                <xs:element name="NOOFROOMS" >
+                                    <xs:complexType>
+                                                   <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                            <xs:attribute name="value" use="required">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:pattern value="[0-9]+"/>
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                        </xs:extension>
+                                                     </xs:simpleContent>
+                                                </xs:complexType>
+                                </xs:element>
+                
+
+
+                                <xs:element name="NOFADULTS" >
+                                    <xs:complexType>
+                                                   <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                            <xs:attribute name="value" use="required">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:pattern value="[0-9]+"/>
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                        </xs:extension>
+                                                     </xs:simpleContent>
+                                                </xs:complexType>
+                                </xs:element>
+
+                                <xs:element name="NOOFCHILD" >
+                                    <xs:complexType>
+                                                   <xs:simpleContent>
+                                                        <xs:extension base="xs:string">
+                                                            <xs:attribute name="value">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:pattern value="[0-9]+"/>
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                        </xs:extension>
+                                                     </xs:simpleContent>
+                                                </xs:complexType>
+                                </xs:element>
+
+
+                                <xs:element name="Email">
+                               <xs:simpleType>
+                                      <xs:restriction base="xs:string">
+                                         <xs:pattern value="[^@]+@[^\.]+\..+"/>
+                                       </xs:restriction>
+                               </xs:simpleType>
+                                 </xs:element>
+                              
+                                <xs:element name="Phone">
+                                      <xs:simpleType>
+                                         <xs:restriction base="xs:integer">
+                                            <xs:pattern value="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+                                        </xs:restriction>
+                                      </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="Bio" type="xs:string"/>
+                
+                               
+                               
+                
+                
+                            </xs:sequence>
+                           
+                        </xs:complexType>
+                     </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+                    </xs:element>
+                
+                 
+                
+                 
+                    </xs:schema>

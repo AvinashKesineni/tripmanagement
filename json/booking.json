@@ -1,0 +1,30 @@
+{"Tripmanagement":{
+    "Booking":[
+
+        {
+        "BookingId":1234,
+        "FULLNAME":"Kesineni Venkata Avinash",
+        "Place":"Coimbatore",
+        "Checkin":"26-08-2022",
+        "Checkout":"28-08-2022",
+        "NoofRooms":1,
+        "NoofAdults":1,
+        "Noofchild":0,
+        "Email":"kva@gmail.com",
+        "Phone":"6301661848"
+        },
+        {
+        "BookingId":1235,
+        "FULLNAME":"JOHN DOE",
+        "Place":"BANGALORE",
+        "Checkin":"26-08-2022",
+        "Checkout":"29-08-2022",
+        "NoofRooms":2,
+        "NoofAdults":3,
+        "Noofchild":4,
+        "Email":"johndoe@gmail.com ",
+        "Phone":"9912345326"
+        }
+
+    ]
+}}

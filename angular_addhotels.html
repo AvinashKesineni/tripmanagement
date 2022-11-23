@@ -4,45 +4,19 @@
         <title>Add Hotels</title>
         <link rel="stylesheet" href="css/addhotels.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 
-        <script>
-            
-            
-                function cntn(){
-                     
-                    var dv1 = document.getElementById("form-section");
-                    dv1.style.display='none';
-                    var dv2 = document.getElementById("continue-section");  
-                    dv2.style.display='block';
-                    
-                }
-
-                function goback(){
-                    var dv1 = document.getElementById("form-section");
-                    var dv2 = document.getElementById("continue-section");
-                    dv2.innerHTML="";
-                    dv1.setAttribute("style","display:block;");
-                    dv2.setAttribute("style","display:none;");
-
-                }
-           
-                function sbmit(){
-    
-                    alert("Place Added Successfully");
-                    
-                }
-   
-          
-        </script>
+       
     </head>
 
     <body>
+        <div ng-app = "mainApp" ng-controller = "hotelController">
 
         <header class="header">
             <img src="./Images/addplaces.png">
 
         </header>
-        <form>
+        <form name="hotelform" action="/addhotel" method="POST">
 
         <section class = "form-section" id="form-section">
           
@@ -61,7 +35,10 @@
 
                 <h4>Official place name</h4>
 
-                <input type="text" placeholder="Enter placename">
+                <input type="text" name="placename" placeholder="Enter placename" ng-model="placename" required>
+                <span style="color:red" ng-show = "hotelform.placename.$touched || hotelform.placename.$dirty && hotelform.placename.$invalid">
+                    <span ng-show="hotelform.placename.$error.required">Name of Place is required*</span>
+                </span>
 
                 <hr>
 
@@ -69,28 +46,38 @@
 
                 <h4> City/Town, State/Province/Region</h4>
 
-                <input type="text" placeholder="Start typing city/town, state/province">
+                <input type="text" name="address" placeholder="Start typing city/town, state/province" ng-model="address" required>
+                <span style="color:red" ng-show = "hotelform.address.$touched || hotelform.address.$dirty && hotelform.address.$invalid">
+                    <span ng-show="hotelform.address.$error.required">City is Required</span>
+                </span>
 
                 <h4>Country (Optional)</h4>
-                <input type="text" placeholder="Start typing a country">
+                <input type="text" name="country" placeholder="Start typing a country">
 
                 <h4>Street Address (50 character maximum)</h4>
-                <input type="text" placeholder="Suite number,intersection, plaza, square">
+                <input type="text" name="strtaddr" placeholder="Suite number,intersection, plaza, square" ng-model="strtaddr" maxlength="100" required>
+                <span style="color:red" ng-show = "hotelform.strtaddr.$touched || hotelform.strtaddr.$dirty && hotelform.strtaddr.$invalid">
+                    <span ng-show="hotelform.strtaddr.$error.required">Street Address is required*</span>
+                </span>
 
-                <h4>Postal Code (Optional)</h4>
-                <input type="text" placeholder="Postal Code">
+                <h4>Postal Code</h4>
+                <input type="text" name="zip" placeholder="Postal Code" ng-model="zip" maxlength ="7" required>
+                <span style="color:red" ng-show = "hotelform.zip.$touched || hotelform.zip.$dirty && hotelform.zip.$invalid">
+                    <span ng-show="hotelform.zip.$error.required">ZipCode is required*</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span  ng-show = "hotelform.zip.$invalid">Invalid ZipCode*</span>
+                </span>
                 
                 <hr>
                 <div>
-                    <div>
+                <div>
                 <h4>Latitude (Optional)</h4>
-                <input type="number" placeholder="Latitude">
+                <input type="number" name="lat" placeholder="Latitude">
             </div>
 
             <div>
            
                 <h4>Longitude (Optional)</h4>
-                <input type="number" placeholder="Longitude">
+                <input type="number" name="long" placeholder="Longitude">
             </div>
 
                 </div>
@@ -99,20 +86,31 @@
 
                 <h2> Contact Information</h2>
 
-                <h4> Telephone (Optional)</h4>
-                <input type="number" placeholder="Enter telephone number">
+                <h4> Telephone</h4>
+                <input type="tel" maxlength="10" name="tel" ng-model="tel" placeholder="Enter telephone number" required>
+                <span style="color:red" ng-show = "hotelform.tel.$touched || hotelform.tel.$dirty && hotelform.tel.$invalid">
+                    <span ng-show="hotelform.tel.$error.required">Phone Number is required*</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span  ng-show = "hotelform.tel.$invalid">Invalid Phone no*</span>
+                    
+                </span>
 
-                <h4>Email (Optional)</h4>
-                <input type="email" placeholder="Enter email address">
+                <h4>Email</h4> 
+                <input type="email" name="email" placeholder="Enter email address"  ng-model="email" required>
+                <span style="color:red"  ng-show = "hotelform.email.$touched || hotelform.email.$dirty && hotelform.email.$invalid">
+                   <span  ng-show = "hotelform.email.$error.required">Email is required*</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  ng-show = "hotelform.email.$error.email">Invalid Email*</span>
+                    </span>
 
                 <h4>Website URL (Optional)</h4>
-                <input type="text" placeholder="http://">
+                <input type="url" name="urlweb"  name = "website" placeholder="http://" ng-model="urlweb">
+                <span style="color:red"  ng-show = "hotelform.urlweb.$touched">
+                        <span  ng-show = "hotelform.urlweb.$error.url">Invalid Url*</span>
+                     </span>
 
                 <br>
 
-                <!-- <button class="goback" >Go Back</button> -->
                 
-                <button class = "submit" type="button" id="sbmt" onclick="cntn()">Continue</button>
+                <button class = "submit" id="sbmt" type="button" onclick="cntn()">Continue</button>
                
 
 
@@ -129,51 +127,51 @@
           <div class = "flex-container">
          
             <div>
-            <input type="radio" name="acc" id="a1">
+            <input type="radio" name="acc" value="Hotel" id="a1" required>
             <label for="a1">Hotel</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a2">
+            <input type="radio" name="acc" value="Small Hotel" id="a2">
             <label for="a2">Small Hotel</label></div> 
 
             <div>
-            <input type="radio" name="acc" id="a3">
+            <input type="radio" name="acc" value="Motel" id="a3">
             <label for="a3">Motel</label></div>
             
             <div>
-            <input type="radio" name="acc" id="a4">
+            <input type="radio" name="acc" value="Resort" id="a4">
             <label for="a4">Resort</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a5">
+            <input type="radio" name="acc" value="Bed and Breakfast" id="a5">
             <label for="a5">Bed and Breakfast</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a6">
+            <input type="radio" name="acc" value="Inn" id="a6">
             <label for="a6">Inn</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a7">
-            <label for="a7">Conoda.Appartment</label></div>
+            <input type="radio" name="acc" value="Conoda Appartment" id="a7">
+            <label for="a7">Conoda Appartment</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a8">
+            <input type="radio" name="acc" value="Villa" id="a8">
             <label for="a8">Villa</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a9">
+            <input type="radio" name="acc" value="Compsite" id="a9">
             <label for="a9">Compsite</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a10">
+            <input type="radio" name="acc" value="Hostel" id="a10">
             <label for="a10">Hostel</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a11">
-            <label for="a11">Holiday Rental House </label></div>
+            <input type="radio" name="acc" value="Holiday Rental House" id="a11">
+            <label for="a11">Holiday Rental House</label></div>
 
             <div>
-            <input type="radio" name="acc" id="a12">
+            <input type="radio" name="acc" value="Other" id="a12">
             <label for="a12">Other</label></div>
           </div>
 
@@ -181,17 +179,17 @@
             How frequently is the front desk or check-in location staffed? (Optional)
         </h3>
 
-        <input type="radio" name = "cin" id = "b1">
-        <label for="b1"> 24 hour front desk</label><br>
+        <input type="radio" name = "cin" value="24 hour front desk" id = "b1">
+        <label for="b1">24 hour front desk</label><br>
 
-        <input type="radio" name = "cin" id = "b2">
-        <label for="b2"> Limited hours front desk</label><br>
+        <input type="radio" name = "cin" value="Limited hours front desk" id = "b2">
+        <label for="b2">Limited hours front desk</label><br>
 
-        <input type="radio" name = "cin" id = "b3">
-        <label for="b3"> No front desk</label><br>
+        <input type="radio" name = "cin" value="No front desk" id = "b3">
+        <label for="b3">No front desk</label><br>
 
-        <input type="radio" name = "cin" id = "b4">
-        <label for="b4"> Not sure</label><br>
+        <input type="radio" name = "cin" value="Not sure" id = "b4">
+        <label for="b4">Not sure</label><br>
 
 
         <h3>
@@ -201,91 +199,91 @@
         <div class = "flex-container">
          
        
-            <input type="radio" name="adf" id="c1">
+            <input type="radio" name="adf" value="Yes" id="c1">
             <label for="c1">Yes</label>
 
            
-            <input type="radio" name="adf" id="c2">
+            <input type="radio" name="adf" value="No" id="c2">
             <label for="c2">No</label> 
 
-            <input type="radio" name="adf" id="c3">
+            <input type="radio" name="adf" value="Not Sure" id="c3">
             <label for="c3">Not Sure</label>
 
            
           </div>
 
           <h3>
-            How often is housekeeping provided? (Optional)
+            How often is housekeeping provided?
         </h3>
 
-        <input type="radio" name = "hpp" id = "d1">
-        <label for="d1"> Daily</label><br>
+        <input type="radio" name = "hpp" value="Daily" id = "d1" required>
+        <label for="d1">Daily</label><br>
 
-        <input type="radio" name = "hpp" id = "d2">
-        <label for="d2"> Weekly</label><br>
+        <input type="radio" name = "hpp" value="Weekly" id = "d2">
+        <label for="d2">Weekly</label><br>
 
-        <input type="radio" name = "hpp" id = "d3">
-        <label for="d3"> Bi-weekly</label><br>
+        <input type="radio" name = "hpp" value="Bi-weekly" id = "d3">
+        <label for="d3">Bi-weekly</label><br>
 
-        <input type="radio" name = "hpp" id = "d4">
-        <label for="d4"> None</label><br>
+        <input type="radio" name = "hpp" value="None" id = "d4">
+        <label for="d4">None</label><br>
 
-        <input type="radio" name = "hpp" id = "d5">
-        <label for="d5"> Not sure</label><br>
+        <input type="radio" name = "hpp" value="Not sure" id = "d5">
+        <label for="d5">Not sure</label><br>
 
         <h3>
             Are there any restrictions on who can stay at this property? (Optional)
         </h3>
 
-        <input type="radio" name = "rsp" id = "e1">
+        <input type="radio" name = "rsp" value="No restrictions" id = "e1">
         <label for="e1">No restrictions</label><br>
 
-        <input type="radio" name = "rsp" id = "e2">
-        <label for="e2"> Adults only </label><br>
+        <input type="radio" name = "rsp" value="Adults only" id = "e2">
+        <label for="e2">Adults only</label><br>
 
-        <input type="radio" name = "rsp" id = "e3">
-        <label for="e3"> Other restrictions (please provide details)</label><br>
+        <input type="radio" name = "rsp" value="Other restrictions (please provide details)" id = "e3">
+        <label for="e3">Other restrictions (please provide details)</label><br>
 
-        <input type="radio" name = "rsp" id = "e4">
-        <label for="e4"> Not sure</label><br>
+        <input type="radio" name = "rsp" value="Not sure" id = "e4">
+        <label for="e4">Not sure</label><br>
 
 
 
         <h3>
-            Does property have seasonal closures? (Optional)
+            Does property have seasonal closures?
         </h3>
 
-        <input type="radio" name = "psc" id = "f1">
+        <input type="radio" name = "psc" value="No Seasonal closures" id = "f1" required>
         <label for="f1">No Seasonal closures</label><br>
 
-        <input type="radio" name = "psc" id = "f2">
-        <label for="f2"> Seasonal closures under 3 months </label><br>
+        <input type="radio" name = "psc" value="Seasonal closures under 3 months" id = "f2">
+        <label for="f2">Seasonal closures under 3 months</label><br>
 
-        <input type="radio" name = "psc" id = "f3">
-        <label for="f3"> Seasonal closures over 3 to 8 months</label><br>
+        <input type="radio" name = "psc" value="Seasonal closures over 3 to 8 months" id = "f3">
+        <label for="f3">Seasonal closures over 3 to 8 months</label><br>
 
-        <input type="radio" name = "psc" id = "f4">
-        <label for="f4"> Seasonal closures over 8 months</label><br>
+        <input type="radio" name = "psc" value="Seasonal closures over 8 months" id = "f4">
+        <label for="f4">Seasonal closures over 8 months</label><br>
 
-        <input type="radio" name = "psc" id = "f5">
-        <label for="f5"> Not Sure</label><br>
+        <input type="radio" name = "psc" value="Not Sure" id = "f5">
+        <label for="f5">Not Sure</label><br>
 
 
         <h3>
-            Are There Onsite Staff? (Optional)
+            Are There Onsite Staff? 
         </h3>
 
-        <input type="radio" name = "oss" id = "g1">
+        <input type="radio" name = "oss" value="Full time" id = "g1" required>
         <label for="g1">Full time</label><br>
 
-        <input type="radio" name = "oss" id = "g2">
+        <input type="radio" name = "oss" value="Part time" id = "g2">
         <label for="g2">Part time</label><br>
 
-        <input type="radio" name = "oss" id = "g3">
+        <input type="radio" name = "oss" value="No Onsite Staff" id = "g3">
         <label for="g3">No Onsite Staff</label><br>
 
-        <input type="radio" name = "oss" id = "g4">
-        <label for="g4"> Not Sure</label><br>
+        <input type="radio" name = "oss" value="Not Sure" id = "g4">
+        <label for="g4">Not Sure</label><br>
 
 
         <h2>
@@ -310,7 +308,7 @@
             </div>
              
             <div>
-            <input type="checkbox" id="x4" name="x4" value="Intenet Access in Room ">
+            <input type="checkbox" id="x4" name="x4" value="Intenet Access in Room">
             <label for="x4"> Intenet Access in Room </label><br>
             </div>
 
@@ -445,15 +443,15 @@
         <div class="flex-container4">
             <br><br>
         <div>
-        <input type="checkbox" id="decl" name="decl">
+        <input type="checkbox" id="decl" name="decl" required>
         <label for ="decl">I certify that this is a genuine accommodation</label>
     </div>
 
         <div>
              
-        <button class="goback" type="button" onclick="goback()" >Go Back</button>
+        <button class="goback" type="button" onclick="goback()">Go Back</button>
                     
-        <button class="submit1" type="submit" onclick="sbmit()">Submit</button>
+        <button class="submit1" type="submit" >Submit</button>
     
         </div>
 
@@ -469,5 +467,45 @@
     
 
     </form>
+
+</div>
+
+
+            
+            <script>
+            
+            
+            function cntn(){
+                 
+                var dv1 = document.getElementById("form-section");
+                dv1.style.display='none';
+                var dv2 = document.getElementById("continue-section");  
+                dv2.style.display='block';
+                
+            }
+
+            function goback(){
+                var dv1 = document.getElementById("form-section");
+                dv1.style.display='block';
+                var dv2 = document.getElementById("continue-section");  
+                dv2.style.display='none';
+
+            }
+       
+
+      
+    </script>
+   
+
+
+
+<script>
+    var mainApp = angular.module("mainApp", []);
+    
+    mainApp.controller('hotelController', function($scope) {
+        $scope.acc =["Hotel","Small Hotel","Motel","Resort","Bed and Breakfast","Inn","Conoda Appartment","Villa","Compsite","Hostel","Holiday Rental House","Other"];
+
+    });
+ </script>
     </body>
 </html> 
